@@ -3,3 +3,17 @@
 [2018-10-22 10:27:37,351] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
 [2018-10-23 14:21:27,613] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
 [2018-10-23 14:46:05,756] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: 'dev-Blog:8000'. You may need to add 'dev-blog' to ALLOWED_HOSTS.
+[2018-10-23 17:02:58,284] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-23 18:58:40,536] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-23 20:25:48,154] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 10:44:57,394] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 12:23:58,262] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 12:27:36,457] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: 'dev-Blog:8000'. You may need to add 'dev-blog' to ALLOWED_HOSTS.
+[2018-10-24 13:47:32,251] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: 'dev-Blog:8000'. You may need to add 'dev-blog' to ALLOWED_HOSTS.
+[2018-10-24 14:17:29,385] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 15:56:08,021] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 16:37:47,871] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 18:42:42,652] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 18:56:18,170] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 19:23:32,421] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-10-24 20:44:22,521] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.

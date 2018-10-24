@@ -35,6 +35,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.219.111' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
 
+SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
+SITE_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../'))
+
 SITE_ID = 1
 
 # Application definition
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'blog',
+    'compressor'
 ]
 
 MIDDLEWARE = [
@@ -66,7 +70,7 @@ ROOT_URLCONF = 'Jin_Blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -188,4 +192,29 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(SITE_ROOT, 'collectedstatic')
+
 STATIC_URL = '/static/'
+STATICFILES = os.path.join(BASE_DIR, 'static')
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED = True
+# COMPRESS_OFFLINE = True
+
+
+COMPRESS_CSS_FILTERS = [
+    # creates absolute urls from relative ones
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    # css minimizer
+    'compressor.filters.cssmin.CSSMinFilter'
+]
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter'
+]
+
