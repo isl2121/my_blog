@@ -7,5 +7,9 @@ app_name = 'blog'
 urlpatterns = [
 	path(r'', views.IndexView.as_view(), name='index'),
     path(r'page/<int:page>/', views.IndexView.as_view(), name='index_page'),
-	
+
+	path(r'article/<int:year>/<int:month>/<int:day>/<int:article_id>.html', views.ArticleDetailView.as_view(), name='detailbyid'),
+
+    path(r'tag/<slug:tag_name>.html', views.TagDetailView.as_view(), name='tag_detail'),
+    path(r'tag/<slug:tag_name>/<int:page>).html', views.TagDetailView.as_view(), name='tag_detail_page'),
 ]

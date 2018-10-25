@@ -1,0 +1,92 @@
+{% extends 'share_layout/base_layout.html' %}
+
+{% block content %}
+
+
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="grid simple horizontal blue ">
+				<div class="grid-title">
+					<h4><span class='semi-bold'>{{ article.title }}</span></h4>
+					<div class="tools">
+						<a href="javascript:;" class="collapse"></a>
+						<a href="javascript:;" class="reload"></a>
+					</div>
+				</div>
+				<div class="grid-body">
+					<div class="scroll-wrapper scroller scrollbar-hidden" style="position: relative; max-height: 220px;">
+						<div class="scroller scrollbar-hidden scroll-content scroll-scrolly_visible" data-height="220px" style="margin-bottom: 0px; margin-right: 0px; height: 220px;">
+						{{ article.body|striptags|truncatewords:1  }}
+						</div>
+						<div class="scroll-element scroll-x scroll-scrolly_visible">
+							<div class="scroll-element_outer">
+								<div class="scroll-element_size"></div>
+								<div class="scroll-element_track"></div>
+								<div class="scroll-bar" style="width: 89px;"></div>
+							</div>
+						</div>
+						<div class="scroll-element scroll-y scroll-scrolly_visible">
+							<div class="scroll-element_outer">
+								<div class="scroll-element_size"></div>
+								<div class="scroll-element_track"></div>
+								<div class="scroll-bar" style="height: 190px; top: 0px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-3 col-sm-6">
+			{% if next_article %}
+			<a href="{{ next_article.get_absolute_url }}">
+				<div class="tiles green   m-b-10">
+					<div class="tiles-body">
+						<div class="tiles-title text-black">다음 글 바로가기</div>
+						<div class="widget-stats">
+							<div class="wrapper transparent"> <span class="item-title">Title</span> <span class="item-count animate-number semi-bold" data-animation-duration="700">{{ next_article.title|truncatechars:12 }}</span> </div>
+						</div>
+						<div class="widget-stats">
+							<div class="wrapper transparent"> <span class="item-title">View</span> <span class="item-count animate-number semi-bold" data-value="{{ next_article.views }}" data-animation-duration="700">{{ next_article.views }}</span> </div>
+						</div>
+						<div class="widget-stats ">
+							<div class="wrapper last"> <span class="item-title">Upload Time</span> <span class="item-count semi-bold">{{ next_article.pub_time|date:'Y-m-d'}}</span> </div>
+						</div>
+					</div>
+				</div>
+			</a>
+			{% endif %}
+		</div>
+		<div class="col-md-6">
+		</div>
+		<div class="col-md-3 col-sm-6">
+			{% if prev_article %}
+			<a href="{{ prev_article.get_absolute_url }}">
+				<div class="tiles blue m-b-10">
+					<div class="tiles-body">
+						<div class="tiles-title text-black">이전 글 바로가기</div>
+						<div class="widget-stats">
+							<div class="wrapper transparent"> <span class="item-title">Title</span> <span class="item-count animate-number semi-bold" data-animation-duration="700">{{ prev_article.title|truncatechars:12 }}</span> </div>
+						</div>
+						<div class="widget-stats">
+							<div class="wrapper transparent"> <span class="item-title">View</span> <span class="item-count animate-number semi-bold" data-value="{{ prev_article.views }}" data-animation-duration="700">{{ prev_article.views }}</span> </div>
+						</div>
+						<div class="widget-stats ">
+							<div class="wrapper last"> <span class="item-title">Upload Time</span> <span class="item-count semi-bold">{{ prev_article.pub_time|date:'Y-m-d'}}</span> </div>
+						</div>
+					</div>
+				</div>
+			</a>
+			{% endif %}
+		</div>
+	</div>
+	
+
+</div>
+
+
+{% endblock content %}

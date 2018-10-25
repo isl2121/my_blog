@@ -4,6 +4,7 @@ from abc import ABCMeta, abstractmethod, abstractproperty
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 from django.utils.timezone import now
 from django.contrib.sites.models import Site
@@ -23,9 +24,16 @@ class BaseModel(models.Model):
 		site = Site.objects.get_current().domain
 		url = 'https://{site}{path}'.format(site,self.get_absolute_url())
 		return url
+	
+	def save(self, *args, **kwargs):
+		if not isinstance(self, Article) and 'slug' in self.__dict__:
+			if getattr(self, 'slug') == 'no-slug' or not self.id:
+				slug = getattr(self, 'title') if 'title' in self.__dict__ else getattr(self, 'name')
+				setattr(self, 'slug', slugify(slug))
+		super().save(*args, **kwargs)
 
 	@abstractmethod
-	def get_absoulte_url(self):
+	def get_absolute_url(self):
 		pass
 
 	class Meta:
@@ -77,11 +85,11 @@ class Article(BaseModel):
 		verbose_name_plural = verbose_name
 		'''
 	
-	def get_absoulte_url(self):
+	def get_absolute_url(self):
 		return reverse('blog:detailbyid', kwargs={
 			'article_id': self.id,
 			'year' : self.created_time.year,
-			'month' : self.crated_tiem.month,
+			'month' : self.created_time.month,
 			'day' : self.created_time.day
 		})
 	
