@@ -150,7 +150,7 @@ class Category(BaseModel):
 	def __str__(self):
 		return self.name
 
-	@cache_decorator(60 * 60 * 10)
+
 	def get_category_tree(self):
 		category = []
 		
@@ -162,13 +162,12 @@ class Category(BaseModel):
 		parse(self)
 		return category
 
-	@cache_decorator(60 * 60 * 10)
-	def get_sub_category(self):
-		category = []
-		all_categorys = Category.object.all()
-		
+	def get_sub_categorys(self):
+		categorys = []
+		all_categorys = Category.objects.all()
+
 		def parse(category):
-			if cetogory not in categorys:
+			if category not in categorys:
 				categorys.append(category)
 			childs = all_categorys.filter(parent_category=category)
 			for child in childs:
@@ -176,8 +175,8 @@ class Category(BaseModel):
 					categorys.append(child)
 				parse(child)
 				
-			parse(self)
-			return categorys
+		parse(self)
+		return categorys
 
 class Tag(BaseModel):
 	name = models.CharField('Tag', max_length=30, unique=True)
@@ -189,9 +188,7 @@ class Tag(BaseModel):
 	def get_absolute_url(self):
 		return reverse('blog:tag_detail', kwargs={'tag_name':self.slug})
 	
-	@cache_decorator(60*60*10)
 	def get_article_count(self):
-		#중복되지 않게 카운트
 		return Article.objects.filter(tags__name=self.name).distinct().count()
 	
 	class Meta:	

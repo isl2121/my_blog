@@ -56,3 +56,17 @@ def get_blog_setting():
         setting.save()
     value = BlogSettings.objects.first()
     return value
+
+
+def custom_paginator(paginator, page_obj, page_numbers_range = 5):
+
+	max_index = len(paginator.page_range)
+	start_index = int((page_obj.number - 1) / page_numbers_range) * page_numbers_range
+	end_index = start_index + page_numbers_range
+	
+	if end_index >= max_index:
+		end_index = max_index
+	
+	page_range = paginator.page_range[start_index:end_index]
+
+	return page_range

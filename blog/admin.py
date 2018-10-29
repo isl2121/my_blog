@@ -65,7 +65,7 @@ class SideBarAdmin(admin.ModelAdmin):
 	exclude = ('last_mod_time', 'created_time')
 
 class CategoryAdmin(admin.ModelAdmin):
-	exclude = ('slug', 'last_mod_time', 'created_time')
+	exclude = ('last_mod_time', 'created_time')
 
 class BlogSettingAdmin(admin.ModelAdmin):
 	pass
