@@ -484,3 +484,5 @@
 [2018-11-01 11:54:18,821] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
 [2018-11-01 12:09:58,243] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
 [2018-11-01 12:15:05,983] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
+[2018-11-01 12:49:53,758] INFO [blog.context_processors.processor:10 context_processors] set processor
+[2018-11-01 12:51:27,493] ERROR [django.security.DisallowedHost.response_for_exception:74 exception] Invalid HTTP_HOST header: '47.99.121.32:39169'. You may need to add '47.99.121.32' to ALLOWED_HOSTS.
