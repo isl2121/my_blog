@@ -441,6 +441,12 @@
 
 // DEMO STUFF
 $(document).ready(function () {
+	
+	$("#search_dashboard").keydown(function(key) {
+		if (key.keyCode == 13) {
+			location.href=window.location.origin+"/search/"+$("#search_dashboard").val()
+		}
+	});
 
     $("#menu-collapse").click(function () {
         if ($('.page-sidebar').hasClass('mini')) {

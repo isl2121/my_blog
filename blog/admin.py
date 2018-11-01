@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-from blog.models import Article, Category, Tag, SideBar, BlogSettings
+from blog.models import Article, Category, Tag, BlogSettings ,Article_Footer
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.utils.html import format_html
+from django_summernote.admin import SummernoteModelAdmin
+
+
 # Register your models here.
 
 class ArticleListFilter(admin.SimpleListFilter):
@@ -39,7 +42,7 @@ article_tmp_save.short_description = _('임시저장')
 close_article_comment_status.short_description = _('댓글 잠그기')
 open_article_comment_status.short_description = _('댓글 열기')
 
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(SummernoteModelAdmin):
 	list_per_page = 20
 	search_filter = ('body','title')
 	list_display = ( 'id', 'title','author', 'link_to_category', 'created_time', 'views', 'status', 'type')
@@ -60,12 +63,12 @@ class ArticleAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
 	exclude = ('slug', 'last_mod_time', 'created_time')
 
-class SideBarAdmin(admin.ModelAdmin):
-	list_display = ('name', 'content', 'is_enable', 'sequence')
+class Article_Footer_Admin(SummernoteModelAdmin):
+	list_display = ('name', 'content')
 	exclude = ('last_mod_time', 'created_time')
 
 class CategoryAdmin(admin.ModelAdmin):
-	exclude = ('last_mod_time', 'created_time')
+	exclude = ('slug', 'last_mod_time', 'created_time')
 
 class BlogSettingAdmin(admin.ModelAdmin):
 	pass
@@ -73,5 +76,5 @@ class BlogSettingAdmin(admin.ModelAdmin):
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
-admin.site.register(SideBar, SideBarAdmin)
+admin.site.register(Article_Footer, Article_Footer_Admin)
 admin.site.register(BlogSettings, BlogSettingAdmin)

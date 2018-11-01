@@ -57,7 +57,7 @@
 								{{ article.title }}
 							</div>
 							<div class="description">
-								{{ article.body|truncatechars:20 }}
+								{{ article.body|truncatechars:15|striptags }}
 							</div>
 							<div class="date pull-left">
 								{{ article.pub_time }}
@@ -68,6 +68,7 @@
 					</a>
 					{% endif %}
 				{% empty %}
+				
 					<div class="notification-messages danger">
 						<div class="user-profile">
 						</div>
@@ -94,8 +95,6 @@
 		<div class="pull-right">
 			<div class="chat-toggler sm">
 				<div class="profile-pic">
-					<img src="assets/img/profiles/avatar_small.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" />
-					<div class="availability-bubble online"></div>
 				</div>
 			</div>
 			<ul class="nav quick-section ">

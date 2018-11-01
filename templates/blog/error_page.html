@@ -1,0 +1,17 @@
+{% extends 'share_layout/error_base_layout.html' %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-offset-1 col-xs-10">
+      <div class="error-container">
+        <div class="error-main">
+          <div class="error-number"> {{ statuscode }} </div>
+          <div class="error-description"> {{ error_description }} </div>
+          <div class="error-description-mini"> {{ comment }} </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

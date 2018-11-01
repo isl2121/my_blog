@@ -16,4 +16,6 @@ urlpatterns = [
          
     path(r'tag/<slug:tag_name>.html', views.TagDetailView.as_view(), name='tag_detail'),
     path(r'tag/<slug:tag_name>/<int:page>).html', views.TagDetailView.as_view(), name='tag_detail_page'),
+    
+    path('profile.html', views.profile ,name='user_profile'),
 ]

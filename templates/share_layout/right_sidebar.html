@@ -4,14 +4,14 @@
           <div class="chat-window-wrapper scroller scrollbar-dynamic" id="chat-users">
 			<div class="chat-window-wrapper scroller scrollbar-dynamic scroll-content scroll-scrolly_visible visible" id="chat-users" style="margin-bottom: 0px; margin-right: 0px; display: block; height: 1000%;">				
 				<div class="side-widget">
-					<div class="side-widget-title">group chats</div>
+					<div class="side-widget-title"></div>
 					<div class="side-widget-content">
 						<div id="groups-list">
 							<ul class="groups">
 								<li>
-									<a href="#">
+									<a href="{{ url 'blog:user_profile' %}">
 										<div class="status-icon green"></div>
-										Office work
+										Profile
 									</a>
 								</li>
 								<li>
@@ -36,7 +36,7 @@
 											
 											<div class="user-name">
 												
-												{{article.title|truncatechars:17|escape}}
+												{{article.title|truncatechars:17|escape|striptags|safe }}
 												
 											</div>
 											
@@ -58,10 +58,10 @@
 								<div class="user-details-wrapper">
 			                    <div class="user-details">
 			                      <div class="user-name">
-			                        {{article.title|truncatechars:17|escape}}
+			                        {{article.title|truncatechars:17}}
 			                      </div>
 			                      <div class="user-more">
-			                        {{article.body|truncatechars:20|escape}}
+			                        {{article.body|striptags|truncatechars:20}}
 			                      </div>
 			                    </div>
 			                    

@@ -1,4 +1,5 @@
 {% extends 'share_layout/base_layout.html' %}
+{% load disqus_tags %}
 
 {% block content %}
 
@@ -6,7 +7,7 @@
 <div class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="grid simple horizontal blue ">
+			<div class="grid simple horizontal ">
 				<div class="grid-title">
 					<h4><span class='semi-bold'>{{ article.title }}</span></h4>
 					<div class="tools">
@@ -15,23 +16,9 @@
 					</div>
 				</div>
 				<div class="grid-body">
-					<div class="scroll-wrapper scroller scrollbar-hidden" style="position: relative; max-height: 220px;">
-						<div class="scroller scrollbar-hidden scroll-content scroll-scrolly_visible" data-height="220px" style="margin-bottom: 0px; margin-right: 0px; height: 220px;">
-						{{ article.body|striptags|truncatewords:1  }}
-						</div>
-						<div class="scroll-element scroll-x scroll-scrolly_visible">
-							<div class="scroll-element_outer">
-								<div class="scroll-element_size"></div>
-								<div class="scroll-element_track"></div>
-								<div class="scroll-bar" style="width: 89px;"></div>
-							</div>
-						</div>
-						<div class="scroll-element scroll-y scroll-scrolly_visible">
-							<div class="scroll-element_outer">
-								<div class="scroll-element_size"></div>
-								<div class="scroll-element_track"></div>
-								<div class="scroll-bar" style="height: 190px; top: 0px;"></div>
-							</div>
+					<div class="" style="position: relative;">
+						<div class=""  style="margin-bottom: 0px; margin-right: 0px;">
+						{{ article.body|safe  }}
 						</div>
 					</div>
 				</div>
@@ -40,7 +27,7 @@
 	</div>
 
 
-	<div class="row">
+	<div class="row m-b-10">
 		<div class="col-md-3 col-sm-6">
 			{% if next_article %}
 			<a href="{{ next_article.get_absolute_url }}">
@@ -84,7 +71,26 @@
 			{% endif %}
 		</div>
 	</div>
-	
+	<div class="row">
+            <div class="col-md-12">
+              <div class="grid simple">
+                <div class="grid-title no-border">
+                  <div class="tools">
+                    <a href="javascript:;" class="reload"></a>
+                  </div>
+                </div>
+                <div class="grid-body no-border">
+	        		{% disqus_show_comments %}        
+                </div>
+              </div>
+            </div>
+          </div>
+          
+	<div class="row">
+		<div class="col-md-12">
+			
+		</div>
+	</div>
 
 </div>
 

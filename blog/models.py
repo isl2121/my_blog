@@ -10,7 +10,7 @@ from django.utils.timezone import now
 from django.contrib.sites.models import Site
 from Jin_Blog.utils import cache_decorator, cache
 from django.utils.functional import cached_property
-
+from slugify import slugify
 
 # Create your models here.
 logger = logging.getLogger(__name__)
@@ -71,6 +71,7 @@ class Article(BaseModel):
 	#article_order = models.Integer('정렬', blank=False,null=False,default=0)
 	
 	tags = models.ManyToManyField('Tag', blank=True)
+	article_footer = models.ForeignKey('Article_footer', on_delete=models.SET_NULL, blank=True, null=True)
 	
 	def __str__(self):
 		return self.title
@@ -196,21 +197,21 @@ class Tag(BaseModel):
 		verbose_name = 'Tag'
 		verbose_name_plural = verbose_name
 
-class SideBar(models.Model):
+
+class Article_Footer(models.Model):
 	name = models.CharField('이름', max_length=30,unique=True)
 	content = models.TextField('내용')
-	sequence = models.IntegerField('정렬',unique=True)
-	is_enable = models.BooleanField('사용여부', default=True)
 	created_time = models.DateTimeField('등록시간', default=now)
 	last_mod_time = models.DateTimeField('변경시간',default=now)
 	
 	class Meta:
-		ordering = ['sequence']
-		verbose_name = 'Sidebar'
+		ordering = ['name']
+		verbose_name = 'Artciel_footer'
 		verbose_name_plural = verbose_name
 	
 	def __str__(self):
 		return self.name
+
 
 class BlogSettings(models.Model):
 	sitename = models.CharField('사이트명', max_length=200, null=False, blank=False, default='My Blog')
@@ -218,7 +219,6 @@ class BlogSettings(models.Model):
 	site_keywords = models.TextField('사이트키워드', max_length=1000, null=False, blank=False, default='Blog')
 	article_sub_length = models.IntegerField('글길이 제한',default=300)	
 	sidebar_article_count = models.IntegerField('사이드바 글 수',default=10)
-	sidebar_comment_count = models.IntegerField('사이드바 댓글수',default=5)
 	open_site_comment = models.BooleanField('사이트 댓글 설정', default = True)
 	show_google_adsense = models.BooleanField('구글광고설정', default=False)
 	google_adsense_codes = models.TextField('구글에드센스 코드',max_length=2000, null=True, blank=True, default='')

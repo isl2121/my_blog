@@ -5,6 +5,7 @@ from Jin_Blog.utils import custom_paginator
 from .models import Article, Tag, Category
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from django.urls import reverse
 
 import logging
 logger = logging.getLogger(__name__)
@@ -18,7 +19,7 @@ class ArticleListView(ListView):
 	page_type = '카테고리'
 	page_kwarg = 'page'
 	
-	paginate_by = 3
+	paginate_by = 5
 	page_numbers_range = 5
 	
 	queryset = ''
@@ -142,15 +143,19 @@ def page_not_found_view(request, exception, template_name='blog/error_page.html'
 	if exception:
 		logger.error(exception)
 	url = request.get_full_path()
-	return render(request, template_name, {'error-description': '404 NotFound', 'statuscode': '404', 'comment': '페이지를 찾을수 없습니다.'}, status=404)
+	return render(request, template_name, {'error_description': '404 NotFound', 'statuscode': '404', 'comment': '페이지를 찾을수 없습니다.'}, status=404)
 
 
 def server_error_view(request, template_name='blog/error_page.html'):
-	return render(request, template_name, {'error-description': 'Permission Denied', 'statuscode': '500', 'comment': '서버에 접속할수 없습니다.'}, status=500)
+	return render(request, template_name, {'error_description': 'Permission Denied', 'statuscode': '500', 'comment': '서버에 접속할수 없습니다.'}, status=500)
 
 
 def permission_denied_view(request, exception, template_name='blog/error_page.html'):
 	if exception:
 		logger.error(exception)
-	return render(request, template_name, {'error-description': '500 Error', 'statuscode': '403', 'comment': '서버에 접근할 권한이 없습니다.'}, status=403)
+	return render(request, template_name, {'error_description': '500 Error', 'statuscode': '403', 'comment': '서버에 접근할 권한이 없습니다.'}, status=403)
 
+
+def profile(request) :
+	
+	return render(request, 'blog/profile.html')

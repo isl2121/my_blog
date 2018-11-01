@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from Jin_Blog.sitemap import StaticViewSitemap, ArticleSiteMap, CategorySiteMap, TagSiteMap
 from django.urls import path , include
+from django.conf.urls import url
+from django.conf.urls.static import static
 
 sitemap = {
 	'Blog': ArticleSiteMap,
@@ -31,5 +33,9 @@ handle403 = 'blog.views.permission_denied_view'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('', include('blog.urls', namespace='blog'))
+	path('', include('blog.urls', namespace='blog')),
+	path('servermanager/', include('servermanager.urls', namespace='servermanager')),
+	url(r'^summernote/', include('django_summernote.urls')),
 ]
+
+

@@ -38,8 +38,19 @@ ALLOWED_HOSTS = ['192.168.219.111' , 'localhost', '127.0.0.1', '125.188.193.116'
 SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../'))
 
-SITE_ID = 1
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(SITE_ROOT, 'collectedstatic')
+
+STATIC_URL = '/static/'
+STATICFILES = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+SITE_ID = 1
+DISQUS_WEBSITE_SHORTNAME = '128-199-166-243'
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,7 +63,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'blog',
-    'compressor'
+    'servermanager',
+    'compressor',
+	'disqus',
+	'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +102,8 @@ WSGI_APPLICATION = 'Jin_Blog.wsgi.application'
 
 #LOGGER
 
+LOG_FILE = os.path.join(BASE_DIR, 'logs', 'Blog.log')
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -112,7 +128,7 @@ LOGGING = {
         'log_file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'djangoblog.log',
+            'filename': LOG_FILE,
             'maxBytes': 16777216,  # 16 MB
             'formatter': 'verbose'
         },
@@ -152,7 +168,7 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR,'db','db.sqlite3'),
     }
 }
 
@@ -190,13 +206,9 @@ USE_L10N = True
 USE_TZ = False
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(SITE_ROOT, 'collectedstatic')
+SUMMERNOTE_CONFIG = {}
 
-STATIC_URL = '/static/'
-STATICFILES = os.path.join(BASE_DIR, 'static')
 
 
 STATICFILES_FINDERS = (
@@ -205,6 +217,7 @@ STATICFILES_FINDERS = (
     # other
     'compressor.finders.CompressorFinder',
 )
+
 COMPRESS_ENABLED = True
 # COMPRESS_OFFLINE = True
 
@@ -215,6 +228,7 @@ COMPRESS_CSS_FILTERS = [
     # css minimizer
     'compressor.filters.cssmin.CSSMinFilter'
 ]
+
 COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.JSMinFilter'
 ]

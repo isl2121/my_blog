@@ -5,8 +5,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-
-
 def get_md5(str):
 	m = md5(str.encode('utf-8'))
 	return m.hexdigest()

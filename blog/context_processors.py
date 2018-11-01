@@ -23,7 +23,6 @@ def processor(requests):
 		'nav_category_list': Category.objects.all(),
 		'nav_pages': Article.objects.filter(Q(pub_time__range=[today, today_end]) | Q(type='p')),
 		'DATE_TODAY' : today,
-#		'OPEN_SITE_COMMENT': setting.open_site_comment,
 		'ANALYTICS_CODE': setting.analyticscode,
 		'most_read_articles': Article.objects.filter(status = 'p').order_by('-views')[:setting.sidebar_article_count],
 		'recent_articles': Article.objects.filter(status='p')[:setting.sidebar_article_count],
