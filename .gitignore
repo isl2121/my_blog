@@ -5,6 +5,6 @@ myvenv
 db.sqlite3
 .DS_Store
 secrets.json
-djangoblog.log
+logs/
 collectedstatic/
-collectedstatic
+servermanager/analytics.json

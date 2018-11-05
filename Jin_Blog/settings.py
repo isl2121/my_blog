@@ -31,9 +31,9 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.219.111' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
+ALLOWED_HOSTS = ['jinsg.kr' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
 
 SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../'))
