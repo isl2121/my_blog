@@ -19,7 +19,7 @@ def processor(requests):
 		'GOOGLE_ADSENSE_CODES': setting.google_adsense_codes,
 		'SITE_DESCRIPTION': setting.site_description,
 		'SITE_KEYWORDS': setting.site_keywords,
-		'SITE_BASE_URL': requests.scheme + '://' + requests.get_host() + '/',
+		'SITE_BASE_URL': 'http://jinsg.kr',
 		'nav_category_list': Category.objects.all(),
 		'nav_pages': Article.objects.filter(Q(pub_time__range=[today, today_end]) | Q(type='p')),
 		'DATE_TODAY' : today,

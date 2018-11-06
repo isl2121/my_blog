@@ -3,7 +3,6 @@
 
 {% block content %}
 
-
 <div class="content">
 	<div class="row">
 		<div class="col-md-12">
@@ -18,15 +17,13 @@
 				<div class="grid-body">
 					<div class="" style="position: relative;">
 						<div class=""  style="margin-bottom: 0px; margin-right: 0px;">
-						{{ article.body|safe  }}
+							{{ article.body|safe  }}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
 	<div class="row m-b-10">
 		<div class="col-md-3 col-sm-6">
 			{% if next_article %}
@@ -71,28 +68,22 @@
 			{% endif %}
 		</div>
 	</div>
-	<div class="row">
-            <div class="col-md-12">
-              <div class="grid simple">
-                <div class="grid-title no-border">
-                  <div class="tools">
-                    <a href="javascript:;" class="reload"></a>
-                  </div>
-                </div>
-                <div class="grid-body no-border">
-	        		{% disqus_show_comments %}        
-                </div>
-              </div>
-            </div>
-          </div>
-          
+	{% if article.comment_status == 'o' %}
 	<div class="row">
 		<div class="col-md-12">
-			
+			<div class="grid simple">
+				<div class="grid-title no-border">
+					<div class="tools">
+						<a href="javascript:;" class="reload"></a>
+					</div>
+				</div>
+				<div class="grid-body no-border">
+					{% disqus_show_comments %}        
+				</div>
+			</div>
 		</div>
 	</div>
-
+	{% endif %}
 </div>
-
 
 {% endblock content %}

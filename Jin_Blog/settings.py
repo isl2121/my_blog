@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os, json
+import os, json, sys
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,6 +32,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 
 ALLOWED_HOSTS = ['jinsg.kr' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
 
@@ -47,7 +48,7 @@ STATIC_URL = '/static/'
 STATICFILES = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL='/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media')
 
 SITE_ID = 1
 DISQUS_WEBSITE_SHORTNAME = '128-199-166-243'
@@ -97,6 +98,21 @@ TEMPLATES = [
         },
     },
 ]
+CACHE_CONTROL_MAX_AGE = 2592000
+
+CACHE = {
+	'default': {
+		'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+		'LOCATION': '127.0.0.1:11211',
+		'KEY_PREFIX': 'django_test' if TESTING else 'djangoblog',
+		'TIMEOUT': 60 * 60 * 10
+    },
+	'locmemcache': {
+		'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+		'TIMEOUT': 10800,
+		'LOCATION': 'unique-snowflake',
+    }
+}
 
 WSGI_APPLICATION = 'Jin_Blog.wsgi.application'
 
@@ -190,6 +206,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization

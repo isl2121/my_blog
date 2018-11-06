@@ -1,3 +1,4 @@
+{% load static %}
 <div class="navbar-inner">
 	<div class="header-seperation">
 		<ul class="nav pull-left notifcation-center visible-xs visible-sm">
@@ -8,8 +9,8 @@
 			</li>
 		</ul>
 		<!-- BEGIN LOGO -->
-		<a href="index.html">
-		<img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21" />
+		<a href="{{ SITE_BASE_URL }}">
+			<img src="{% static 'blog/img/logo.png' %}" class="logo" alt="" data-src="{% static 'blog/img/logo.png' %}" data-src-retina="{% static 'blog/img/logoX2.png' %}" width="106" height="21" />
 		</a>
 		<!-- END LOGO -->
 		<ul class="nav pull-right notifcation-center">
@@ -104,14 +105,7 @@
 					</a>
 					<ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
 						<li>
-							<a href="user-profile.html"> My Account</a>
-						</li>
-						<li>
-							<a href="calender.html">My Calendar</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="login.html"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Log Out</a>
+							<a href="/admin"> My Account</a>
 						</li>
 					</ul>
 				</li>
