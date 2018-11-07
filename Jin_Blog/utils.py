@@ -1,6 +1,8 @@
 from django.core.cache import cache
 from hashlib import md5
 from django.conf import settings
+from django.core.mail import EmailMessage
+
 import logging
 
 logger = logging.getLogger(__name__)
@@ -68,3 +70,24 @@ def custom_paginator(paginator, page_obj, page_numbers_range = 5):
 	page_range = paginator.page_range[start_index:end_index]
 
 	return page_range
+
+def send_mail(title,sender,receiver,content):
+	from servermanager.models import EmailSendLog
+	log = EmailSendLog()
+
+	log.title = title
+	log.content = content
+	log.sender = sender
+	log.receiver = receiver
+	
+	try : 
+		email = EmailMessage(title, content, to=[receiver])
+		result = email.send()
+		log.send_result = result > 0
+	except Exception as e:
+		logger.error(e)
+		log.send_result = False
+
+	log.save()
+	
+	return result

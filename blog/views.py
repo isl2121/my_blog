@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
-from Jin_Blog.utils import custom_paginator
+from Jin_Blog.utils import custom_paginator, send_mail
 from .models import Article, Tag, Category
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from django.urls import reverse
+from .forms import Sendmailform
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 import logging
 logger = logging.getLogger(__name__)
@@ -140,8 +143,6 @@ class TagDetailView(ArticleListView):
 
 
 def page_not_found_view(request, exception, template_name='blog/error_page.html'):
-	if exception:
-		logger.error(exception)
 	url = request.get_full_path()
 	return render(request, template_name, {'error_description': '404 NotFound', 'statuscode': '404', 'comment': '페이지를 찾을수 없습니다.'}, status=404)
 
@@ -156,6 +157,29 @@ def permission_denied_view(request, exception, template_name='blog/error_page.ht
 	return render(request, template_name, {'error_description': '500 Error', 'statuscode': '403', 'comment': '서버에 접근할 권한이 없습니다.'}, status=403)
 
 
-def profile(request) :
+def profile(request):
 	
-	return render(request, 'blog/profile.html')
+	if request.method == "POST":
+		form = Sendmailform(request.POST)
+		
+		if form.is_valid():
+			fields = ('title','sender','content')
+			
+			title = form.cleaned_data['title']
+			sender = form.cleaned_data['sender']
+			receiver = "jinisl2121@gmail.com"
+			content = form.cleaned_data['content']
+
+			result = send_mail(title,sender,receiver,content)
+			if result:
+				messages.success(request, '정상적으로 전송되었습니다.')
+				return HttpResponseRedirect('/blog/profile.html')
+			else:
+				messages.error(request, '전송중 오류가 발생하였습니다. 나중에 다시 시도하여주십시요.')
+		
+		else:
+			messages.error(request, '전송중 오류가 발생하였습니다. 나중에 다시 시도하여주십시요.')
+	else:
+		form = Sendmailform()
+	
+	return render(request, 'blog/profile.html', {'form':form})

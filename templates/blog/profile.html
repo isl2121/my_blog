@@ -2,327 +2,318 @@
 {% load static %}
 {% block content %}
 <div class="content">
-          <div class="row">
-            <div class="col-md-6">
-              <div class=" tiles white col-md-12 no-padding">
-                <div class="tiles green cover-pic-wrapper">
+	<div class="row">
+		<div class="col-md-6">
+			<div class=" tiles white col-md-12 no-padding">
+				<div class="tiles green cover-pic-wrapper">
+					<img src="{% static 'blog/img/cover_pic.png' %}" alt="">
+				</div>
+				<div class="tiles white">
+					<div class="row">
+						<div class="col-md-3 col-sm-3">
+							<div class="user-profile-pic">
+								<img width="69" height="69" data-src-retina="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" src="assets/img/profiles/avatar.jpg" alt="">
+							</div>
+							<div class="user-mini-description">
+								<h3 class="text-success semi-bold">
+								</h3>
+								<h5></h5>
+								<h3 class="text-success semi-bold">
+								</h3>
+								<h5></h5>
+							</div>
+						</div>
+						<div class="col-md-5 user-description-box  col-sm-5">
+							<h4 class="semi-bold no-margin">Jin Seoung Gyu</h4>
+							<h6 class="no-margin">Web Developer</h6>
+							<br>
+							<p><i class="fa fa-globe"></i><a href="{{ SITE_BASE_URL }}">{{ SITE_BASE_URL }}</a></p>
+							<p><i class="fa fa-github"></i><a href="https://github.com/isl2121/" target="_blank">Git hub</a></p>
+							<p><i class="fa fa-envelope"></i><a href="mailto:isl2121@naver.com" target="_blank">Send Mail </a></p>
+						</div>
+						<div class="col-md-3  col-sm-3">
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="tiles-body">
+						<div class="row">
+							<div class="post col-md-12">
+								<div class="user-profile-pic-wrapper">
+									<div class="user-profile-pic-normal">
+										<img width="35" height="35" data-src-retina="assets/img/profiles/c2x.jpg" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt="">
+									</div>
+								</div>
+								<div class="info-wrapper">
+									<div class="username">
+										<span class="dark-text">간략한 소개</span>
+									</div>
+									<div class="info">
+										<p>고등학교 졸업 후 어떤 일을 할지 고민 중 예전부터 관심이 있던 프로그래밍 쪽으로 방향을 잡고 맨땅에 헤딩하듯 개발(PHP)쪽을 공부하였습니다. </p>
+										<p>그 후 병특회사에 취직하여 실력을 키웠고 복무 완료 후 새로운 기술도 공부하기 위해 퇴사 후 공부에 집중하고 있습니다.</p>
+									</div>
+									<br>
+									<h3><span class="semi-bold">보유기술</span></h3>
+									<p class="text-info">(관심분야)</p>
+									<h4><span class="semi-bold">Programming Language</span></h4>
+										<p>	Html5, PHP, Python</p>
+										<p class="text-info">C++</p>
+									<h4><span class="semi-bold">Framework / Libarary</span></h4>
+										<p>	Jquery, FHC Framework, Django, Laravel</p>
+										<p class="text-info">Flask</p>
+									<h4><span class="semi-bold">Server</span></h4>
+										<p>	Apache, Nginx</p>
+									<h4><span class="semi-bold">Tooling /DevOps</span></h4>
+										<p>	GitHub, SVN</p>
+										<p class="text-info">Docker</p>
+									<h4><span class="semi-bold">Environment</span></h4>
+										<p>	AWS, DigitalOcean, macOS, Windows</p>
+								</div>
+								<div class="clearfix"></div>
+								<br>
+								<br>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="tiles white col-md-12  no-padding">
+					<div class="tiles-body">
+						<h3><span class="bold">프로젝트</span></h3>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel-group" id="accordion" data-toggle="collapse">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+												Hellostock
+												</a>
+											</h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse">
+											<div class="panel-body">
+												<p>관리자페이지에서 주식을 등록하고 사용자들한테 추천을 해주며 매도/매매 시기를 알려준다.</p>
+												<p>모바일에서도 가능하게 해야해 전용앱을 만들고 주식을 매도/매매 할 시기에는 PUSH 알림으로 알려준다.</p>
+												<p>프리미엄을 결제한사람에게 프리미엄 추천을 시도하였으나 프리미엄 결제 쪽에 가능한 PG사를 회사쪽에서 찾지 못하여 아직 런칭은 미뤄지고 있다.</p>
+												<ul>
+							                        <li>Techinical Lead
+							                          <ul>
+							                            <li>Web Backend(Laravel,PHP, mysql,fcm push)</li>
+							                            <li>Web Frontend(HTML5, CSS,JQuery, Js)</li>
+							                            <li>Versioning (Svn)</li>
+							                            <li>Moblie (JAVA , Android Studio, FCM PUSH, WebView)</li>
+							                          </ul>
+							                        </li>
+							                        <li>Project Lead</li>
+														<ul>
+							                            <li>Communication : Slack을 통한 팀 대화, 시스템 오류 현황을 slack에 공유하며 대응</li>
+							                            <li>회의 : 일일  stand-up, 주간회의, 월간 일정회의</li>
+							                            <li>문서화 : Docs, PDF화 하여 전달</li>
+							                          </ul>
+							                      </ul>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion"  href="#collapseTwo">
+												Crush On The Voice
+												</a>
+											</h4>
+										</div>
+										<div id="collapseTwo" class="panel-collapse collapse">
+											<div class="panel-body">
+												<p>크러쉬온더보이스, 일반인을 모아 오디션을 보며 관객들 투표와 전문가 투표를 약 4차례 걸쳐 1등하는 사람에게 상금과 인지도있는 회사랑 연결</p>
+												<p>초반에 홈페이지 제작하는 다른 업체를 통해 제작했다가 너무 이상하게 만들어져 우리 회사로 넘어와 유지보수를 했다. 프레임워크가 없이 통짜로 html과 php가 섞여 있고 아무렇게나 만들어져있어 초반에 유지 보수하는데 고생했던 작업</p>
+												<ul>
+							                        <li>Techinical Lead
+							                          <ul>
+							                            <li>Web Backend(PHP, mysql ,dotnamekorea SMS)</li>
+							                            <li>Web Frontend(HTML5, CSS,JQuery)</li>
+							                            <li>Versioning (Svn)</li>
+							                          </ul>
+							                        </li>
+							                        <li>Project Lead</li>
+														<ul>
+							                            <li>Communication : Slack을 통한 팀 대화</li>
+							                            <li>회의 : 일일  stand-up, 주간회의, 월간 해당 업체와 일정회의</li>
+							                            <li>기획팀을 통해 수정사항등을 주간별로 전해주었고 해당내용을 수정</li>
+							                          </ul>
+							                      </ul>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+												Fastnow
+												</a>
+											</h4>
+										</div>
+										<div id="collapseThree" class="panel-collapse collapse">
+											<div class="panel-body">
+											<p>캐시서버를 해외에 여러대 두어 해외에서 접속할때 좀더 빠르게 접속 가능하게 해주는 기능 유지보수</p>
+											<ul>
+						                        <li>Techinical Lead
+						                          <ul>
+						                            <li>Web Backend(Varnish Cache, php, mysql)</li>
+						                            <li>Web Frontend(HTML5, CSS, JQuery)</li>
+						                            <li>Versioning (Svn)</li>
+						                            <li>Server (AWS, Dotnamekorea)</li>
+						                          </ul>
+						                        </li>
+						                        <li>Project Lead</li>
+													<ul>
+						                            <li>Communication : Slack을 통한 팀 대화</li>
+						                            <li>회의 : 일일  stand-up, 주간회의, 월간 해당 업체와 일정회의</li>
+						                            <li>기획팀을 통해 수정사항등을 주간별로 전해주었고 해당내용을 수정</li>
+						                            <li>문서화 : Docs, PDF화 하여 전달</li>
+						                          </ul>
+						                    </ul>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+													Jin Blog
+												</a>
+											</h4>
+										</div>
+										<div id="collapseFour" class="panel-collapse collapse">
+											<div class="panel-body">
+												<p>처음으로 장고를 사용해 만든 블로그 전부 다 혼자 만들기 힘들어 괜찮은 소스를 분석해 나만의 방식으로 만들었다. 
+													서버 매니저 페이지를 따로 만들고 아날리틱스 api를 붙여 관리자 페이지에 로그인한 사람만 볼 수 있는 페이지를 제작했다.</p>
+											<ul>
+						                        <li>Techinical Lead
+						                          <ul>
+						                            <li>Web Backend(Django2.x, Python3.x ,mysql, analytics, AdSense)</li>
+						                            <li>Web Frontend(HTML5, CSS ,JQuery, <a href="https://themeforest.net/item/webarch-responsive-admin-dashboard-template/6157416" target="_blank">Template</a>)</li>
+						                            <li>Hosting (DigitalOcean)</li>
+						                            <li>Versioning (Git)</li>
+						                          </ul>
+						                        </li>
+						                    </ul>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+													AssureServer
+												</a>
+											</h4>
+										</div>
+										<div id="collapseFive" class="panel-collapse collapse">
+											<div class="panel-body">
+												<p>해외에 도메인을 판매하기 위해 회사에서 WHMCS를 사용하여 만든 페이지, whmcs 와 우리 회사 api를 통하여 도메인을 등록하는 부분을 담당하여 만들었다.</p>
+												<ul>
+							                        <li>Techinical Lead
+							                          <ul>
+							                            <li>Web Backend(PHP, FHC Framework, json, mysql)</li>
+							                            <li>Web Frontend(HTML5, CSS )</li>
+							                            <li>Versioning (Svn)</li>
+							                          </ul>
+							                        </li>
+							                        <li>Project Lead</li>
+													<ul>
+						                            <li>Communication : Slack을 통한 팀 대화</li>
+						                            <li>회의 : 일일  stand-up, 주간회의, 월간 해당 업체와 일정회의</li>
+						                            <li>기획팀과 다른팀이 검수해 필요한부분을 제작하고 수정하였다.</li>
+						                          </ul>
 
-                  <img src="{% static 'blog/img/cover_pic.png' %}" alt="">
-                  
-                </div>
-                <div class="tiles white">
-                  <div class="row">
-                    <div class="col-md-3 col-sm-3">
-                      <div class="user-profile-pic">
-                        <img width="69" height="69" data-src-retina="assets/img/profiles/avatar2x.jpg" data-src="assets/img/profiles/avatar.jpg" src="assets/img/profiles/avatar.jpg" alt="">
-                      </div>
-                      <div class="user-mini-description">
-                        <h3 class="text-success semi-bold">
-									
-						</h3>
-                        <h5></h5>
-                        <h3 class="text-success semi-bold">
-						
-						</h3>
-                        <h5></h5>
-                      </div>
-                    </div>
-                    <div class="col-md-5 user-description-box  col-sm-5">
-                      <h4 class="semi-bold no-margin">Jin Seoung Gyu</h4>
-                      <h6 class="no-margin">Web Developer</h6>
-                      <br>
-                      <p><i class="fa fa-globe"></i><a href="{{ SITE_BASE_URL }}">{{ SITE_BASE_URL }}</a></p>
-                      <p><i class="fa fa-github"></i><a href="https://github.com/isl2121/" target="_blank">Git hub</a></p>
-                      <p><i class="fa fa-envelope"></i><a href="mailto:isl2121@naver.com" target="_blank">Send Mail </a></p>
-                    </div>
-                    <div class="col-md-3  col-sm-3">
-                      <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
-                      <ul class="my-friends">
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/d2x.jpg" data-src="assets/img/profiles/d.jpg" src="assets/img/profiles/d.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/c2x.jpg" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/h2x.jpg" data-src="assets/img/profiles/h.jpg" src="assets/img/profiles/h.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" src="assets/img/profiles/avatar_small.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/e2x.jpg" data-src="assets/img/profiles/e.jpg" src="assets/img/profiles/e.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/b2x.jpg" data-src="assets/img/profiles/b.jpg" src="assets/img/profiles/b.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/h2x.jpg" data-src="assets/img/profiles/h.jpg" src="assets/img/profiles/h.jpg" alt="">
-                          </div>
-                        </li>
-                        <li>
-                          <div class="profile-pic">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/d2x.jpg" data-src="assets/img/profiles/d.jpg" src="assets/img/profiles/d.jpg" alt="">
-                          </div>
-                        </li>
-                      </ul>
-                      <div class="clearfix"></div>
-                    </div>
-                  </div>
-                  <div class="tiles-body">
-                    <div class="row">
-                      <div class="post col-md-12">
-                        <div class="user-profile-pic-wrapper">
-                          <div class="user-profile-pic-normal">
-                            <img width="35" height="35" data-src-retina="assets/img/profiles/c2x.jpg" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt="">
-                          </div>
-                        </div>
-                        <div class="info-wrapper">
-                          <div class="username">
-                            <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>
-                          </div>
-                          <div class="info">
-                            Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours, Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;)
-                          </div>
-                          <div class="more-details">
-                            <ul class="post-links">
-                              <li><a href="#" class="muted">2 Minutes ago</a></li>
-                              <li><a href="#" class="text-info">Collapse</a></li>
-                              <li><a href="#" class="text-info"><i class="fa fa-reply"></i> Reply</a></li>
-                              <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
-                              <li><a href="#" class="muted">More</a></li>
-                            </ul>
-                          </div>
-                          <div class="clearfix"></div>
-                          <ul class="action-bar">
-                            <li><a href="#" class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
-                            <li><a href="#" class="text-error"><i class="fa fa-heart"></i> 47k</a> likes</li>
-                          </ul>
-                          <div class="clearfix"></div>
-                          <div class="post comments-section">
-                            <div class="user-profile-pic-wrapper">
-                              <div class="user-profile-pic-normal">
-                                <img width="35" height="35" alt="" src="assets/img/profiles/e.jpg" data-src="assets/img/profiles/e.jpg" data-src-retina="assets/img/profiles/e2x.jpg">
-                              </div>
-                            </div>
-                            <div class="info-wrapper">
-                              <div class="username">
-                                <span class="dark-text">Thunderbolt</span>
-                              </div>
-                              <div class="info">
-                                Congrats, <span class="dark-text">John Smith</span> & <span class="dark-text">Jane Smith</span>
-                              </div>
-                              <div class="more-details">
-                                <ul class="post-links">
-                                  <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                  <li><a href="#" class="text-error"><i class="fa fa-heart"></i> Like</a></li>
-                                  <li><a href="#" class="muted">Details</a></li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="clearfix"></div>
-                          </div>
-                          <div class="post comments-section">
-                            <div class="user-profile-pic-wrapper">
-                              <div class="user-profile-pic-normal">
-                                <img width="35" height="35" src="assets/img/profiles/h.jpg" data-src="assets/img/profiles/h.jpg" data-src-retina="assets/img/profiles/h2x.jpg" alt="">
-                              </div>
-                            </div>
-                            <div class="info-wrapper">
-                              <div class="username">
-                                <span class="dark-text">Thunderbolt</span>
-                              </div>
-                              <div class="info">
-                                Congrats, <span class="dark-text">John Smith</span> & <span class="dark-text">Jane Smith</span>
-                              </div>
-                              <div class="more-details">
-                                <ul class="post-links">
-                                  <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                  <li><a href="#" class="text-error"><i class="fa fa-heart"></i> Like</a></li>
-                                  <li><a href="#" class="muted">Details</a></li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="clearfix"></div>
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <br>
-                        <br>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="row">
-                <div class="tiles white col-md-12  no-padding">
-                  <div class="tiles-body">
-                    <h5><span class="semi-bold">You many also know</span>&nbsp;&nbsp; <a href="#" class="text-info normal-text">view more</a></h5>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="friend-list">
-                          <div class="friend-profile-pic">
-                            <div class="user-profile-pic-normal">
-                              <img width="35" height="35" src="assets/img/profiles/d.jpg" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" alt="">
-                            </div>
-                          </div>
-                          <div class="friend-details-wrapper">
-                            <div class="friend-name">
-                              Johne Drake
-                            </div>
-                            <div class="friend-description">
-                              James Smith in commman
-                            </div>
-                          </div>
-                          <div class="action-bar pull-right">
-                            <button class="btn btn-primary" type="button">Add</button>
-                          </div>
-                          <div class="clearfix"></div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="friend-list">
-                          <div class="friend-profile-pic">
-                            <div class="user-profile-pic-normal">
-                              <img width="35" height="35" src="assets/img/profiles/b.jpg" data-src="assets/img/profiles/b.jpg" data-src-retina="assets/img/profiles/b2x.jpg" alt="">
-                            </div>
-                          </div>
-                          <div class="friend-details-wrapper">
-                            <div class="friend-name">
-                              Johne Drake
-                            </div>
-                            <div class="friend-description">
-                              James Smith in commman
-                            </div>
-                          </div>
-                          <div class="action-bar pull-right">
-                            <button class="btn btn-primary" type="button">Add</button>
-                          </div>
-                          <div class="clearfix"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col-md-12 no-padding">
-                  <div class="tiles white">
-                    <textarea rows="3" class="form-control user-status-box post-input" placeholder="Whats on your mind?"></textarea>
-                  </div>
-                  <div class="tiles grey padding-10">
-                    <div class="pull-left">
-                      <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-camera"></i></button>
-                      <button class="btn btn-default btn-sm btn-small" type="button"><i class="fa fa-map-marker"></i></button>
-                    </div>
-                    <div class="pull-right">
-                      <button class="btn btn-primary btn-sm btn-small" type="button">POST</button>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                </div>
-              </div>
-              <br>
-              <br>
-              <div class="row">
-                <div class="post col-md-12">
-                  <div class="user-profile-pic-wrapper">
-                    <div class="user-profile-pic-normal">
-                      <img width="35" height="35" src="assets/img/profiles/c.jpg" data-src="assets/img/profiles/c.jpg" data-src-retina="assets/img/profiles/c2x.jpg" alt="">
-                    </div>
-                  </div>
-                  <div class="info-wrapper">
-                    <div class="username">
-                      <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>
-                    </div>
-                    <div class="info">
-                      Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours, Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;)
-                    </div>
-                    <div class="more-details">
-                      <ul class="post-links">
-                        <li><a href="#" class="muted">2 Minutes ago</a></li>
-                        <li><a href="#" class="text-info">Collapse</a></li>
-                        <li><a href="#" class="text-info"><i class="fa fa-reply"></i> Reply</a></li>
-                        <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
-                        <li><a href="#" class="muted">More</a></li>
-                      </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                    <ul class="action-bar">
-                      <li><a href="#" class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
-                      <li><a href="#" class="text-error"><i class="fa fa-heart"></i> 47k</a> likes</li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    <div class="post comments-section">
-                      <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-normal">
-                          <img width="35" height="35" data-src-retina="assets/img/profiles/e2x.jpg" data-src="assets/img/profiles/e.jpg" src="assets/img/profiles/e.jpg" alt="">
-                        </div>
-                      </div>
-                      <div class="info-wrapper">
-                        <div class="username">
-                          <span class="dark-text">Thunderbolt</span>
-                        </div>
-                        <div class="info">
-                          Congrats, <span class="dark-text">John Smith</span> & <span class="dark-text">Jane Smith</span>
-                        </div>
-                        <div class="more-details">
-                          <ul class="post-links">
-                            <li><a href="#" class="muted">2 Minutes ago</a></li>
-                            <li><a href="#" class="text-error"><i class="fa fa-heart"></i> Like</a></li>
-                            <li><a href="#" class="muted">Details</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="post comments-section">
-                      <div class="user-profile-pic-wrapper">
-                        <div class="user-profile-pic-normal">
-                          <img width="35" height="35" data-src-retina="assets/img/profiles/b2x.jpg" data-src="assets/img/profiles/b.jpg" src="assets/img/profiles/b.jpg" alt="">
-                        </div>
-                      </div>
-                      <div class="info-wrapper">
-                        <div class="username">
-                          <span class="dark-text">Thunderbolt</span>
-                        </div>
-                        <div class="info">
-                          Congrats, <span class="dark-text">John Smith</span> & <span class="dark-text">Jane Smith</span>
-                        </div>
-                        <div class="more-details">
-                          <ul class="post-links">
-                            <li><a href="#" class="muted">2 Minutes ago</a></li>
-                            <li><a href="#" class="text-error"><i class="fa fa-heart"></i> Like</a></li>
-                            <li><a href="#" class="muted">Details</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="post comments-section">
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+							                    </ul>
+
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+													그 외
+												</a>
+											</h4>
+										</div>
+										<div id="collapseSix" class="panel-collapse collapse">
+											<div class="panel-body">
+												<p>회사에서 홈페이지 제작, 유지보수등도 진행하여 간단한 유지보수 (팝업제작, 홈페이지 일부수정, 오류확인 및 수정, 게시판제작) 등을 진행해왔다.</p>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<form method="POST">
+				{% csrf_token %}
+			<div class="row">
+				<div class="col-md-12 no-padding">
+					<div class="grid simple">
+						<div class="grid-title no-border">
+							<div class="tools">
+								<a href="javascript:;" class="collapse"></a>
+								<a href="#grid-config" data-toggle="modal" class="config"></a>
+								<a href="javascript:;" class="reload"></a>
+								<a href="javascript:;" class="remove"></a>
+							</div>
+							<h3>Contact <span class="semi-bold">Me</span></h3>
+						</div>
+
+						<div class="grid-body no-border">
+							
+								{% if messages %}
+								  {% for message in messages %}
+								  		<div class="alert alert-{{ message.tags  }}" style="">
+			                      			<button class="close" data-dismiss="alert"></button>{{message}}
+										</div>
+								    {% endfor %}
+								{% endif %}
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="form-label">Title</label>
+										<span class="help">e.g. "제목"</span>
+										<div class="controls">
+											{{ form.title }}
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-label">Email</label>
+										<span class="help">e.g. "isl2121@naver.com"</span>
+										<div class="controls">
+											{{ form.sender }}
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="form-label">Content</label>
+										<div class="controls">
+											{{ form.content }}
+										</div>
+									</div>
+									<button type="submit" class="btn btn-success btn-cons">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+			<br>
+			<br>
+		</div>
+	</div>
+</div>
 {% endblock content %}

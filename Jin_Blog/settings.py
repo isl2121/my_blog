@@ -31,7 +31,8 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 
 ALLOWED_HOSTS = ['jinsg.kr' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
@@ -118,6 +119,21 @@ WSGI_APPLICATION = 'Jin_Blog.wsgi.application'
 
 #LOGGER
 
+
+# Emial:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = True
+#EMAIL_USE_SSL = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = get_secret('DJANGO_EMAIL_USER')
+EMAIL_HOST_PASSWORD = get_secret('DJANGO_EMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = get_secret('DJANGO_EMAIL_USER')
+
+
 LOG_FILE = os.path.join(BASE_DIR, 'logs', 'Blog.log')
 
 LOGGING = {
@@ -143,9 +159,8 @@ LOGGING = {
     'handlers': {
         'log_file': {
             'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': LOG_FILE,
-            'maxBytes': 16777216,  # 16 MB
             'formatter': 'verbose'
         },
         'console': {
