@@ -129,7 +129,7 @@ class TagDetailView(ArticleListView):
 		tag = get_object_or_404(Tag, slug=slug)
 		tag_name = tag.name
 		self.name = tag_name
-		article_list = Article.objects.filter(tags__name=tag_name)
+		article_list = Article.objects.filter(tags__name=tag_name, status='p')
 		return article_list
 
 	def get_context_data(self, **kwargs):
@@ -143,11 +143,15 @@ class TagDetailView(ArticleListView):
 
 
 def page_not_found_view(request, exception, template_name='blog/error_page.html'):
+	if exception:
+		logger.error(exception)
 	url = request.get_full_path()
 	return render(request, template_name, {'error_description': '404 NotFound', 'statuscode': '404', 'comment': '페이지를 찾을수 없습니다.'}, status=404)
 
 
 def server_error_view(request, template_name='blog/error_page.html'):
+	if exception:
+		logger.error(exception)
 	return render(request, template_name, {'error_description': 'Permission Denied', 'statuscode': '500', 'comment': '서버에 접속할수 없습니다.'}, status=500)
 
 

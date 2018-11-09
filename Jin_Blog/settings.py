@@ -35,7 +35,7 @@ DEBUG = False
 
 TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 
-ALLOWED_HOSTS = ['jinsg.kr' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
+ALLOWED_HOSTS = ['jinsg.kr','dev.jinsg.kr' , 'localhost', '127.0.0.1', '125.188.193.116','128.199.166.243']
 
 SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../'))
