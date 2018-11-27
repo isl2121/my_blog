@@ -65,7 +65,7 @@ class CategoryDetailView(ArticleListView):
 		context['page_type'] = CategoryDetailView.page_type
 		context['page_range'] = custom_paginator(context['paginator'], context['page_obj'], 5)
 		context['tag_name'] = categoryname
-		
+	
 		return context
 
 class IndexView(ArticleListView):
@@ -106,7 +106,8 @@ class ArticleDetailView(DetailView):
 		
 		context['next_article'] = self.object.next_article
 		context['prev_article'] = self.object.prev_article
-		
+
+				
 		return context
 
 class TagListView(ListView):

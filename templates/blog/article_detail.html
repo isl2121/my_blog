@@ -24,6 +24,29 @@
 			</div>
 		</div>
 	</div>
+	{% if article.article_footer %}
+		<div class="row">
+			<div class="col-md-12">
+				<div class="grid simple horizontal ">
+					<div class="grid-title">
+						<h4><span class='semi-bold'>꼬리말</span></h4>
+						<div class="tools">
+							<a href="javascript:;" class="collapse"></a>
+							<a href="javascript:;" class="reload"></a>
+						</div>
+					</div>
+					<div class="grid-body">
+						<div class="" style="position: relative;">
+							<div class=""  style="margin-bottom: 0px; margin-right: 0px;">
+								{{ article.article_footer.content|safe }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	
 	<div class="row m-b-10">
 		<div class="col-md-3 col-sm-6">
 			{% if next_article %}
@@ -32,7 +55,7 @@
 					<div class="tiles-body">
 						<div class="tiles-title text-black">다음 글 바로가기</div>
 						<div class="widget-stats">
-							<div class="wrapper transparent"> <span class="item-title">Title</span> <span class="item-count animate-number semi-bold" data-animation-duration="700">{{ next_article.title|truncatechars:12 }}</span> </div>
+							<div class="wrapper transparent"> <span class="item-title">Title</span> <span class="item-count animate-number semi-bold" data-animation-duration="700">{{ next_article.title|truncatechars:10 }}</span> </div>
 						</div>
 						<div class="widget-stats">
 							<div class="wrapper transparent"> <span class="item-title">View</span> <span class="item-count animate-number semi-bold" data-value="{{ next_article.views }}" data-animation-duration="700">{{ next_article.views }}</span> </div>
@@ -54,7 +77,7 @@
 					<div class="tiles-body">
 						<div class="tiles-title text-black">이전 글 바로가기</div>
 						<div class="widget-stats">
-							<div class="wrapper transparent"> <span class="item-title">Title</span> <span class="item-count animate-number semi-bold" data-animation-duration="700">{{ prev_article.title|truncatechars:12 }}</span> </div>
+							<div class="wrapper transparent"> <span class="item-title">Title</span> <span class="item-count animate-number semi-bold" data-animation-duration="700">{{ prev_article.title|truncatechars:10 }}</span> </div>
 						</div>
 						<div class="widget-stats">
 							<div class="wrapper transparent"> <span class="item-title">View</span> <span class="item-count animate-number semi-bold" data-value="{{ prev_article.views }}" data-animation-duration="700">{{ prev_article.views }}</span> </div>
