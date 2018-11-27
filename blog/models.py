@@ -107,18 +107,7 @@ class Article(BaseModel):
 		self.views += 1
 		self.save(update_fields=['views'])
 		
-	def comment_list(self):
-		cache_key = 'article_comments_{id}'.format(id=self.id)
-		value = cache.get(cache_key)
-		if value:
-			logger.info('get article comments:{id}'.format(id=self.id))
-			return value
-		else:
-			comments = self.comment_set.filter(is_enable=True)
-			cache.set(cache_key, comments)
-			logger.info('set article comments:{id}'.format(id=self.id))
-			return comments
-
+	
 	def get_admin_url(self):
 		info = (self._meta.app_label, self._meta.model_name)
 		return reverse('admin:{info}_{pk}_change'.format(info,args=(self.pk,)))
@@ -137,6 +126,7 @@ class Article(BaseModel):
 class Category(BaseModel):
 	name = models.CharField('분류명', max_length = 30, unique=True)
 	parent_category = models.ForeignKey('self', verbose_name='선분류 카테고리', blank=True, null=True, on_delete=models.CASCADE)
+	icon = models.CharField('아이콘', max_length = 30, default="panorama_horizontal")
 	slug = models.SlugField(default='no-slug', max_length=60, blank=True)
 	
 	class Meta:
@@ -150,7 +140,10 @@ class Category(BaseModel):
 
 	def __str__(self):
 		return self.name
-
+		
+	def get_parent_category(self):
+		parent_categorys_list = Category.objects.filter(parent_category__isnull=True)
+		return parent_categorys_list
 
 	def get_category_tree(self):
 		category = []
@@ -190,7 +183,7 @@ class Tag(BaseModel):
 		return reverse('blog:tag_detail', kwargs={'tag_name':self.slug})
 	
 	def get_article_count(self):
-		return Article.objects.filter(tags__name=self.name).distinct().count()
+		return Article.objects.filter(tags__name=self.name, status='p').distinct().count()
 	
 	class Meta:	
 		ordering = ['name']
