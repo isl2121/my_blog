@@ -35,7 +35,6 @@
                   </div>
                 </div>
               </div>
-
 		</div>
         <div  class="col-vlg-10 col-md-10">
 		{% for article in article_list %}
@@ -92,7 +91,14 @@
 			</div>
         {% endfor %}
         </div>
+        	
         {% include 'share_layout/pagination.html'%}
+
+		{% if SHOW_GOOGLE_ADSENSE %}
+			{% include 'share_layout/adsense.html' %}
+		{% endif %}
+
+
 	</div>
 	
 </div>
